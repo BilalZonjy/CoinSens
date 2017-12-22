@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 });
 
 // mongodb connection
-mongoose.connect("mongodb://localhost:27017/bookworm");
+mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds249325.mlab.com:49325/practice1");
 var db = mongoose.connection;
 // mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -31,7 +31,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // serve static files from /public
 app.use(express.static(__dirname + '/public'));
-
 // view engine setup
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
