@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 });
 
 // mongodb connection
-mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds249325.mlab.com:49325/practice1");
+mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds163836.mlab.com:63836/heroku_crtwx80t");
 var db = mongoose.connection;
 // mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
