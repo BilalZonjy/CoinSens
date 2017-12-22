@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var port = process.env.PORT || 8000
 var app = express();
 mongoose.Promise = require('bluebird');
 
@@ -57,6 +58,6 @@ app.use(function(err, req, res, next) {
 });
 
 // listen on port 3000
-app.listen(3000, function () {
+app.listen(port, function () {
   console.log('Express app listening on port 3000');
 });
