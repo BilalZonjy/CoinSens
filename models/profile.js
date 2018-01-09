@@ -1,30 +1,25 @@
 var mongoose = require('mongoose');
-var PortfolioSchema = new mongoose.Schema({
+var ProfileSchema = new mongoose.Schema({
     id: {
         type: String,
         unique: true,
         required: true,
         trim: true
     },
-    btn: {
-        type: Number,
+    city: {
+        type: String,
     },
-    eth: {
-        type: Number,
-    },
-    lit: {
-        type: Number,
-    },
-
-
+    website: {
+        type: String,
+    }
 });
 // authenticate input against database documents
-PortfolioSchema.statics.authenticate = function(id, callback) {
-        Portfolio.findOne({ id: id })
-            .exec(function(error, Portfolio) {
+ProfileSchema.statics.authenticate = function(id, callback) {
+        Profile.findOne({ id: id })
+            .exec(function(error, Profile) {
                 if (error) {
                     return callback(error);
-                } else if (!Portfolio) {
+                } else if (!Profile) {
                     var err = new Error('User not found.');
                     err.status = 401;
                     return callback(err);
@@ -33,11 +28,11 @@ PortfolioSchema.statics.authenticate = function(id, callback) {
             });
     }
     // hash password before saving to database
-PortfolioSchema.pre('save', function(next) {
-    var Portfolio = this;
+ProfileSchema.pre('save', function(next) {
+    var Profile = this;
     next();
 
 });
-var Portfolio = mongoose.model('Portfolio', PortfolioSchema);
+var Profile = mongoose.model('Profile', ProfileSchema);
 
-module.exports = Portfolio;
+module.exports = Profile;
