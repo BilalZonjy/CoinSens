@@ -136,7 +136,16 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
             if (error) {
                 return next(error);
             } else {
-                return res.render('dashboard', { title: 'dashboard', name: user.name });
+                console.log(user);
+                Portfolio.find(req.session.userId)
+                    .exec(function(error, portfolio) {
+                        if (error) {
+                            return next(error);
+                        } else {
+                            console.log(portfolio);
+                            return res.render('dashboard', { title: 'dashboard', name: user.name, btc: portfolio.btn, lit: portfolio.lit, eth: portfolio.eth });
+                        }
+                    });
             }
         });
 });
@@ -149,7 +158,6 @@ router.post('/updateProfile', mid.requiresLogin, function(req, res, next) {
         city: req.body.city,
         website: req.body.website,
     };
-    console.log(profileData);
     Profile.update({ _id: req.session.userId }, profileData, { upsert: true }, function(error, user) {
         if (error) { console.log(error) }
     });
