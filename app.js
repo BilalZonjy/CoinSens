@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 });
 
 // mongodb connection
-mongoose.connect("mongodb://heroku_crtwx80t:cujsjdqt01oar8r80vkl2p2024@ds163836.mlab.com:63836/heroku_crtwx80t");
+mongoose.connect("mongodb://localhost:27017/coinSense");
 var db = mongoose.connection;
 // mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // serve static files from /public
 app.use(express.static(__dirname + '/public'));
+
 // view engine setup
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
@@ -57,6 +58,6 @@ app.use(function(err, req, res, next) {
 });
 
 // listen on port 3000
-app.listen(port, function () {
+app.listen(3000, function () {
   console.log('Express app listening on port 3000');
 });
