@@ -1,15 +1,33 @@
-extends layout
+extends adminProfile
 
 block content
-  .main.container
-    .row
-      .col-md-6.col-md-offset-3
-        h1.display-4.m-b-2 Log In
-        form(method='POST' action='/login')
-          div.form-group
-            label(for='email') Email
-            input.form-control(type='text' id='email' placeholder='email' name='email')
-          div.form-group
-            label(for='password') Password
-            input.form-control(type='password' id='password' placeholder='password' name='password')
-          button.btn.btn-primary(type='submit') Log in        
+        |  
+        body.page-login
+         .page-inner
+           #main-wrapper
+            .row
+            .col-md-4.center
+              .login-box
+                a.logo-name.text-lg.text-center(href='/about') CoinSense
+                |                                 
+                p.text-center.m-t-md Please login into your account.
+                |                                 
+                form.m-t-md(method ='POST' action='/login')
+                  .form-group
+                    label(for='email') Email
+                    input.form-control(type='email',id= 'email' placeholder='email', required='' name='email')
+                  |                                     
+                  .form-group
+                    label(for='password') Password
+                    input.form-control(type='password', id= "password" placeholder='Password', required='' name= 'password')
+                  |                                     
+                  button.btn.btn-success.btn-block(type='submit') Login
+                  |                                                                        
+                  p.text-center.m-t-sm.text-sm Need an Account?
+                  |                                     
+                  a.btn.btn-default.btn-block.m-t-md(href='/register') Create an account
+                |                                 
+                p.text-center.m-t-xs.text-xs 2018 CWRU Coding Bootcamp
+
+   
+

@@ -77,7 +77,7 @@ router.post('/register', function(req, res, next) {
       var userData = {
         email: req.body.email,
         name: req.body.name,
-        password: req.body.password
+        password: req.body.password,
       };
 
       // use schema's `create` method to insert document into Mongo
@@ -106,10 +106,28 @@ router.get('/', function(req, res, next) {
 router.get('/about', function(req, res, next) {
   return res.render('about', { title: 'About' });
 });
+router.get('/facts', function (req, res, next) {
+  return res.render('facts', { title: 'CryptoKnow' });
+});
+// router.get('/dashboard', function (req, res, next) {
+//   return res.render('dashboard', { title: 'Dashboard' });
+// });
+router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
+  User.findById(req.session.userId)
+      .exec(function (error, user) {
+        if (error) {
+          return next(error);
+        } else {
+          return res.render('dashboard', { title: 'dashboard', name: user.name });
+        }
+      });
+});
+
 
 // GET /contact
 router.get('/contact', function(req, res, next) {
   return res.render('contact', { title: 'Contact' });
 });
+
 
 module.exports = router;
