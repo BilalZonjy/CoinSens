@@ -134,11 +134,16 @@ block content
                           li
                             p
                               
-                              form(method='POST' action='/register')
+                              form(method='POST' action='/updateProfile')
                                 div.form-group
                                   label(for ='city') City:
-                                  input#city.form-control(type='text', placeholder='Current City' name='city')
-                                  
+                                  input#city.form-control(type='text',  placeholder='Current City' name='city')
+                                div.form-group
+                                  label(for='website') Website:
+                                  input#name.form-control(type='text', placeholder='Your Website' name='website')
+                                  a(href='#')  
+                                  i.fa.fa-link.m-r-xs
+                                button.btn.btn-success(type='submit') Sign up                                  
                           |                                
                           li
                             p
@@ -148,21 +153,15 @@ block content
                           |                                 
                           li
                             p
-                             
-                              form(method='POST' action='/register')
-                                div.form-group
-                                  label(for='website') Website:
-                                  input#name.form-control(type='text', placeholder='Your Website' name='website')
-                              a(href='#')  
-                              i.fa.fa-link.m-r-xs
                         |                             
                         hr
                         |
                         
-                        form(action='/register', method='POST', enctype='multipart/form-data')
-                        input(type='file', name='myimage')  
-                        input.btn.btn-primary.btn-block(type='submit', name='submit', value='Upload Avatar Image') 
-                                           
+                        form(method='POST', enctype='multipart/form-data')
+                        input(type='file', name='upl')
+                        button.btn.btn-primary.btn-block(type='submit', name='uploadimage', value='Upload Image')
+                          i.fa.fa-plus.m-r-xs
+                          | Upload Profile Image                 
                       |                         
                       .col-md-6.m-t-lg
                         .panel.panel-dark
