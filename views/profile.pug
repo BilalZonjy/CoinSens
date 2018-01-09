@@ -159,11 +159,10 @@ block content
                         hr
                         |
                         
-                        form(method='POST', enctype='multipart/form-data')
-                        input(type='file', name='upl')
-                        button.btn.btn-primary.btn-block(type='submit', name='uploadimage', value='Upload Image')
-                          i.fa.fa-plus.m-r-xs
-                          | Upload Profile Image                 
+                        form(action='/register', method='POST', enctype='multipart/form-data')
+                        input(type='file', name='myimage')  
+                        input.btn.btn-primary.btn-block(type='submit', name='submit', value='Upload Avatar Image') 
+                                           
                       |                         
                       .col-md-6.m-t-lg
                         .panel.panel-dark
