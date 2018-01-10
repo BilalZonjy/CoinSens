@@ -17,7 +17,7 @@ fetch(url)
         return btc.map(function (btc) {
             let span = createNode('span');
             span.innerHTML = `${btc.BTC.USD}`;
-            append(span);
+            append(p);
         })
     })
     .catch(function (error) {
