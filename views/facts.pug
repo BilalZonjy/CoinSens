@@ -1,5 +1,9 @@
 extends adminDashboard 
 block content
-    div.embed-responsive.embed-responsive-16vy9
-    iframe.embed-responsive-item(src='http://cryptocurrencyfacts.com/')
-        p Your browser does not support iframes.
+ 
+        .container
+            h2 Responsive Embed
+            p
+                | Create a responsive video and scale it nicely to the parent element with an 16:9 aspect ratio
+            .embed-responsive.embed-responsive-16by9
+                iframe.embed-responsive-item(src='http://cryptocurrencyfacts.com/')
