@@ -111,7 +111,7 @@ block content
                       | #{name}
                       i.fa.fa-angle-down
                     |                                         
-                    img.img-circle.avatar(src='assets/images/avatar1.png', width='40', height='40', alt='')
+                    img.img-circle.avatar(src='/images/bitkey.png', width='40', height='40', alt='')
                   |                                     
                   ul.dropdown-menu.dropdown-list(role='menu')
                     li(role='presentation')
@@ -139,13 +139,13 @@ block content
             .sidebar-profile
               a#profile-menu-link(href='javascript:void(0);')
                 .sidebar-profile-image
-                  img.img-circle.img-responsive(src='assets/images/profile-menu-image.png', alt='')
+                  img.img-circle.img-responsive(src='/images/bitkey.png', alt='')
                 |                                 
                 .sidebar-profile-details
                   span
                     | #{name}
                     br
-                    small Graphic Designer
+                    small Username
           |                     
           ul.menu.accordion-menu
             li.active
@@ -177,7 +177,9 @@ block content
               .panel.info-box.panel-dark
                 .panel-body
                   .info-box-stats
-                    p.counter 16930.42
+                    p
+                      | $
+                      span.counter 16930.42
                     |                                         
                     span.info-box-title Bitcoin Current Price 
                   |                                     
@@ -192,7 +194,9 @@ block content
               .panel.info-box.panel-dark
                 .panel-body
                   .info-box-stats
-                    p.counter 696.14
+                    p
+                      | $
+                      span.counter 696.14
                     |                                         
                     span.info-box-title Ethereum Current Price
                   |                                     
@@ -211,7 +215,7 @@ block content
                       | $
                       span.counter 222.07
                     |                                         
-                    span.info-box-title LiteCoin Current Price 
+                    span.info-box-title Litecoin Current Price 
                   |                                     
                   .info-box-icon
                     i.icon-
@@ -224,9 +228,15 @@ block content
               .panel.info-box.panel-dark
                 .panel-body
                   .info-box-stats
-                    p.counter 40
-                    |                                         
-                    span.info-box-title Your Portfolio Value 
+                    |
+                    span.info-box-title  Bitcoins 
+                    p#btc
+                      |#{btn}
+                    span.info-box-title  Litecoins
+                      |#{eth}
+                    span.info-box-title  Ethereum 
+                      |#{lit}
+                    |                                        
                   |                                     
                   .info-box-icon
                     i.icon-favorite

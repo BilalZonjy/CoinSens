@@ -21,9 +21,6 @@ app.post('profile', multer({ dest: './uploads/' }).single('upl'), function (req,
 });
 
 
-
-
-
 function loggedOut(req, res, next) {
   if (req.session && req.session.userId) {
     return res.redirect('/profile');

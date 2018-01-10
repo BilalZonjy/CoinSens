@@ -99,7 +99,7 @@ router.post('/register', function(req, res, next) {
 
                 };
                 Portfolio.create(userportfolio, function(error, user) {
-                    if (error) { cosole.log(error) }
+                    if (error) { console.log(error) }
                 });
                 return res.redirect('/profile');
             }
@@ -136,8 +136,8 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
             if (error) {
                 return next(error);
             } else {
-                console.log(user);
-                Portfolio.find(req.session.userId)
+                Portfolio.find({})
+                // Portfolio.find(req.session.userId)
                     .exec(function(error, portfolio) {
                         if (error) {
                             return next(error);
