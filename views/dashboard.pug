@@ -398,12 +398,36 @@ block content
             .col-lg-4.col-md-6
               .panel.panel-dark
                 .panel-heading
-                  h4.panel-title Inbox
-                  |                                     
+                  h4.panel-title Your Portfolio
                   .panel-control
-                    a.panel-reload(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='Reload')
+                    a.panel-reload(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='', data-original-title='Reload')
                       i.icon-reload
-            
+                .panel-body
+                  .slimScrollDiv(style='position: relative; overflow: hidden; width: auto; height: 35%;')
+                    .inbox-widget.slimscroll(style='overflow: hidden; width: auto; height: 100%;')
+                      a(href='#')
+                        .inbox-item
+                          .inbox-item-img
+                            img.img-circle(src='/images/btcAV.png', alt='')
+                          p.inbox-item-author Your Bitcoins
+                          p.inbox-item-date .609 BTC
+                      a(href='#')
+                        .inbox-item
+                          .inbox-item-img
+                            img.img-circle(src='/images/ethAV.jpg', alt='')
+                          p.inbox-item-author Your Ethereum
+                          p.inbox-item-date 1.2 ETH
+                      a(href='#')
+                        .inbox-item
+                          .inbox-item-img
+                            img.img-circle(src='/images/ltcAV.jpg', alt='')
+                          p.inbox-item-author Your Litecoins
+                          p.inbox-item-date .445 LTC
+                      a(href='#')
+                    .slimScrollBar(style='background: rgb(204, 204, 204); width: 7px; position: absolute; top: 0px; opacity: 0.3; display: none; border-radius: 0px; z-index: 99; right: 0px; height: 298.923px;')
+                    .slimScrollRail(style='width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 0px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 0px;')
+
+                                  
                                 
             .col-lg-3.col-md-6
               .panel.twitter-box
