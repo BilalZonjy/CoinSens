@@ -27,7 +27,7 @@ block content
               .menu-wrap
                 nav.profile-menu
                   .profile
-                    img(src='assets/images/profile-menu-image.png', width='60', alt='#{name}')
+                    img(src='assets/images/mining.png', width='60', alt='#{name}')
                     span #{name}
                   |                 
                   .profile-menu-list
@@ -43,7 +43,7 @@ block content
                         i.fa.fa-bars
                     |                     
                     .logo-box
-                      a.logo-text(href='index.html')
+                      a.logo-text(href='/')
                         span CoinSense
                     // Logo Box
                     .search-button
@@ -66,7 +66,7 @@ block content
                                 | #{name}
                                 i.fa.fa-angle-down
                               |                                         
-                              img.img-circle.avatar(src='assets/images/avatar1.png', width='40', height='40', alt='')
+                              img.img-circle.avatar(src='/images/avatar1.png', width='40', height='40', alt='')
                             |                                     
                             ul.dropdown-menu.dropdown-list(role='menu')
                               li(role='presentation')
@@ -89,13 +89,13 @@ block content
                         .sidebar-profile
                           a#profile-menu-link(href='javascript:void(0);')
                             .sidebar-profile-image
-                              img.img-circle.img-responsive(src='assets/images/profile-menu-image.png', alt='')
+                              img.img-circle.img-responsive(src='/images/mining.png', alt='')
                             |                                 
                             .sidebar-profile-details
                               span
-                                | #{name}
+                                | #{name} 
                                 br
-                                small Art Director
+                                small Username
                       |                     
                       ul.menu.accordion-menu
                         li
@@ -104,7 +104,7 @@ block content
                             p Dashboard
                         |                         
                         li.active
-                          a.waves-effect.waves-button(href='profile.html')
+                          a.waves-effect.waves-button(href='/profile')
                             span.menu-icon.glyphicon.glyphicon-user
                             p Profile
                         |                         
@@ -124,9 +124,9 @@ block content
                   #main-wrapper
                     .row
                       .col-md-3.user-profile
-                        h3.text-center #{name}
+                        h4.text-center Hello
                         |                             
-                        p.text-center UI/UX Designer
+                        h3.text-center.lead #{name}
                         |                             
                         hr
                         |                             
@@ -136,32 +136,21 @@ block content
                               
                               form(method='POST' action='/updateProfile')
                                 div.form-group
-                                  label(for ='city') City:
+                                  label(for ='city') City: #{city}
                                   input#city.form-control(type='text',  placeholder='Current City' name='city')
                                 div.form-group
-                                  label(for='website') Website:
+                                  label(for='website') Website: #{website}
                                   input#name.form-control(type='text', placeholder='Your Website' name='website')
                                   a(href='#')  
-                                  i.fa.fa-link.m-r-xs
-                                button.btn.btn-success(type='submit') Sign up                                  
-                          |                                
-                          li
-                            p
-                              i.fa.fa-envelope.m-r-xs
-                              
-                              a(href='#') #{email}
-                          |                                 
-                          li
-                            p
-                        |                             
-                        hr
-                        |
-                        
+                                |
+                                button.btn.btn-success(type='submit') Submit Changes                                
+                        |                               
                         form(method='POST', enctype='multipart/form-data')
-                        input(type='file', name='upl')
-                        button.btn.btn-primary.btn-block(type='submit', name='uploadimage', value='Upload Image')
-                          i.fa.fa-plus.m-r-xs
-                          | Upload Profile Image                 
+                        div.form-group
+                          input(type='file', name='upl')
+                          button.btn.btn-primary.btn-block(type='submit', name='uploadimage', value='Upload Image')
+                            i.fa.fa-plus.m-r-xs
+                            | Upload Profile Image                 
                       |                         
                       .col-md-6.m-t-lg
                         .panel.panel-dark
