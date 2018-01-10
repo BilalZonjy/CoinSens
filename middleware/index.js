@@ -20,11 +20,7 @@ app.post('profile', multer({ dest: './uploads/' }).single('upl'), function (req,
   res.status(204).end();
 });
 
-app.get('profile', multer({ dest: './uploads/' }).single('upl'), function (req, res) {
-  console.log(req.body);
-  console.log(req.file);
-  res.status(204).end();
-});
+
 
 
 

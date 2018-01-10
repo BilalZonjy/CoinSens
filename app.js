@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 });
 
 // mongodb connection
-mongoose.connect("mongodb://localhost:27017/coinSense");
+mongoose.connect("mongodb://localhost:27017/coinSense", {useMongoClient: true});
 var db = mongoose.connection;
 // mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -56,6 +56,8 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
 
 // listen on port 3000
 app.listen(3000, function () {
