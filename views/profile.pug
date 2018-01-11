@@ -164,13 +164,14 @@ block content
                             li.timeline-item
                               .panel.panel-dark
                                 .panel-body
-                                form(method='POST' action='/updateBTC')
+                                form(method='POST' action="/updateBTC")
                                   div.form-group
                                     img.img-circle(src='/images/btcAv.png', width='30', height='30', alt='')
                                     input#btc.form-control(type='number', placeholder='' name='btc')
                                     a(href='#')  
                                   |
-                                  button.btn.btn-success(type='submit') Submit Changes 
+                                  button.btn.btn-success(type='submit' name="trade" value="Buy") Buy
+                                  button.btn.btn-danger(type='submit' name="trade" value="Sell") Sell 
                             |                                     
                             li.timeline-item
                               .panel.panel-dark

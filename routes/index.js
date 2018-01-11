@@ -162,21 +162,28 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
         });
 });
 
-router.post('/updateBTC', mid.requiresLogin, function(req, res, next) {
+router.post('/updateBTC', mid.requiresLogin, function (req, res, next) {
     Portfolio.find({ 'id': req.session.userId })
-        .exec(function(error, OldPortfolio) {
+        .exec(function (error, OldPortfolio) {
             if (error) {
                 console.log(error)
                 return next(error);
             } else {
                 OldPortfolio = OldPortfolio[0];
+                var btc;
+                if (req.body.trade == 'Sell') {
+                    btc = parseFloat(OldPortfolio.btn) - parseFloat(req.body.btc);
+                    if(btc <0){btc =0}
+                } else {
+                    btc = parseFloat(OldPortfolio.btn) + parseFloat(req.body.btc);
+                }
                 var portfolioData = {
                     id: req.session.userId,
-                    btn: req.body.btc,
+                    btn: btc,
                     lit: OldPortfolio.lit,
                     eth: OldPortfolio.eth,
                 };
-                Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function(error, user) {
+                Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function (error, user) {
                     if (error) { console.log(error) }
                 });
                 return res.redirect('/profile');
