@@ -14,9 +14,11 @@ const url = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,DASH,BT
 console.log($('currentBTC').html());
 $.get(url, function(data) {
     $('#currentBTC').html(data.BTC.USD);
+    $('#currentBTC').addClass('counter');
     $('#currentETH').html(data.ETH.USD);
+    $('#currentETH').addClass('counter');
     $('#currentLIT').html(data.LTC.USD);
-
+    $('#currentLIT').addClass('counter');
 });
 
 
