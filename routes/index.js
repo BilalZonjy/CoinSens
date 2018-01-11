@@ -136,13 +136,15 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
             if (error) {
                 return next(error);
             } else {
-                Portfolio.find({})
-                // Portfolio.find(req.session.userId)
+                // Portfolio.find({})
+                Portfolio.find({ 'id':req.session.userId})
                     .exec(function(error, portfolio) {
                         if (error) {
+                            console.log(error)
                             return next(error);
                         } else {
                             console.log(portfolio);
+                            portfolio = portfolio[0];
                             return res.render('dashboard', { title: 'dashboard', name: user.name, btc: portfolio.btn, lit: portfolio.lit, eth: portfolio.eth });
                         }
                     });

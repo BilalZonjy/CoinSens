@@ -403,17 +403,17 @@ block content
                           .inbox-item-img
                             img.img-circle(src='/images/btcAV.png', alt='')
                           p.live-title Your Bitcoins
-                          p.inbox-item-date .609 BTC
+                          p.inbox-item-date #{btc} BTC
                         .inbox-item
                           .inbox-item-img
                             img.img-circle(src='/images/ethAV.jpg', alt='')
                           p.live-title Your Ethereum
-                          p.inbox-item-date 1.2 ETH
+                          p.inbox-item-date #{eth} ETH
                         .inbox-item
                           .inbox-item-img
                             img.img-circle(src='/images/ltcAV.jpg', alt='')
                           p.live-title Your Litecoins
-                          p.inbox-item-date .445 LTC
+                          p.inbox-item-date #{lit} LIT
                     .slimScrollBar(style='background: rgb(204, 204, 204); width: 7px; position: absolute; top: 0px; opacity: 0.3; display: none; border-radius: 0px; z-index: 99; right: 0px; height: 298.923px;')
                     .slimScrollRail(style='width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 0px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 0px;')
 
@@ -423,9 +423,9 @@ block content
               .panel.twitter-box
                 .panel-body
                   .live-tile(data-mode='flip', data-speed='750', data-delay='3000')
-                    span.tile-title.pull-right New Tweets
+                    span.tile-title.pull-right News
                     |                                         
-                    i.fa.fa-twitter
+                    //- i.fa.fa-twitter
                     |                                         
                     div
                       h2.no-m *All* crypto communities, ethereum included, should heed these words of warning...
@@ -438,9 +438,9 @@ block content
               .panel.facebook-box
                 .panel-body
                   .live-tile(data-mode='carousel', data-direction='horizontal', data-speed='750', data-delay='4500')
-                    span.tile-title.pull-right Facebook Feed
+                    span.tile-title.pull-right Facebook
                     |                                         
-                    i.fa.fa-facebook
+                    //- i.fa.fa-facebook
                     |                                         
                     div
                       h2.no-m Check out our actual TOP10 CryptoCurrency price index! ...
