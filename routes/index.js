@@ -162,7 +162,28 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
         });
 });
 
-
+router.post('/updateBTC', mid.requiresLogin, function (req, res, next) {
+    Portfolio.find({ 'id': req.session.userId })
+        .exec(function (error, OldPortfolio) {
+            if (error) {
+                console.log(error)
+                return next(error);
+            } else {
+                OldPortfolio = OldPortfolio[0];
+                var portfolioData = {
+                    id: req.session.userId,
+                    btn: req.body.btc,
+                    lit: OldPortfolio.lit,
+                    eth: OldPortfolio.eth,
+                };
+                Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function (error, user) {
+                    if (error) { console.log(error) }
+                });
+                return res.redirect('/profile');
+            }
+        });
+    return res.redirect('/profile');
+});
 router.post('/updateProfile', mid.requiresLogin, function(req, res, next) {
 
     var profileData = {

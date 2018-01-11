@@ -164,8 +164,13 @@ block content
                             li.timeline-item
                               .panel.panel-dark
                                 .panel-body
-                                  img.img-circle(src='/images/btcAv.png', width='30', height='30', alt='')
-                                  
+                                form(method='POST' action='/updateBTC')
+                                  div.form-group
+                                    img.img-circle(src='/images/btcAv.png', width='30', height='30', alt='')
+                                    input#btc.form-control(type='number', placeholder='' name='btc')
+                                    a(href='#')  
+                                  |
+                                  button.btn.btn-success(type='submit') Submit Changes 
                             |                                     
                             li.timeline-item
                               .panel.panel-dark
@@ -192,7 +197,7 @@ block content
                                 img(src='/images/ethAV.jpg', alt='')
                               .team-member
                                 img(src='/images/merAV.jpg', alt='')
-                                .team-member
+                              .team-member
                                 img(src='/images/dashAV.jpg', alt='')
                         |
                         .panel.panel-dark
