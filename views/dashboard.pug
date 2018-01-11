@@ -130,7 +130,7 @@ block content
                   .info-box-stats
                     p
                       | $
-                      span.counter #{btc}
+                      span#currentBTC(data-btc="currentBTC")&attributes({'btc':{btc}}).counter 
                     |                                         
                     span.info-box-title Bitcoin Current Price 
                   |                                     
@@ -147,7 +147,7 @@ block content
                   .info-box-stats
                     p
                       | $
-                      span.counter 696.14
+                      span#currentETH(data-btc="currentETH")&attributes({'eth':{eth}}).counter 
                     |                                         
                     span.info-box-title Ethereum Current Price
                   |                                     
@@ -164,7 +164,7 @@ block content
                   .info-box-stats
                     p
                       | $
-                      span.counter 222.07
+                      span#currentLIT(data-btc="currentLIT")&attributes({'lit':{lit}}).
                     |                                         
                     span.info-box-title Litecoin Current Price 
                   |                                     
