@@ -6,15 +6,15 @@ var Profile = require('../models/Profile');
 var mid = require('../middleware');
 
 // GET /profile
-router.get('/profile', mid.requiresLogin, function (req, res, next) {
+router.get('/profile', mid.requiresLogin, function(req, res, next) {
     User.findById(req.session.userId)
-        .exec(function (error, user) {
+        .exec(function(error, user) {
             if (error) {
                 return next(error);
             } else {
 
                 Portfolio.find({ 'id': req.session.userId })
-                    .exec(function (error, portfolio) {
+                    .exec(function(error, portfolio) {
                         if (error) {
                             return next(error);
                         } else {
@@ -147,7 +147,7 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
                 return next(error);
             } else {
                 // Portfolio.find({})
-                Portfolio.find({ 'id':req.session.userId})
+                Portfolio.find({ 'id': req.session.userId })
                     .exec(function(error, portfolio) {
                         if (error) {
                             console.log(error)
@@ -162,9 +162,9 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
         });
 });
 
-router.post('/updateBTC', mid.requiresLogin, function (req, res, next) {
+router.post('/updateBTC', mid.requiresLogin, function(req, res, next) {
     Portfolio.find({ 'id': req.session.userId })
-        .exec(function (error, OldPortfolio) {
+        .exec(function(error, OldPortfolio) {
             if (error) {
                 console.log(error)
                 return next(error);
@@ -176,13 +176,14 @@ router.post('/updateBTC', mid.requiresLogin, function (req, res, next) {
                     lit: OldPortfolio.lit,
                     eth: OldPortfolio.eth,
                 };
-                Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function (error, user) {
+                Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function(error, user) {
                     if (error) { console.log(error) }
                 });
                 return res.redirect('/profile');
             }
+
         });
-    return res.redirect('/profile');
+
 });
 router.post('/updateProfile', mid.requiresLogin, function(req, res, next) {
 
