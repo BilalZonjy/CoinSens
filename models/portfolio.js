@@ -6,7 +6,7 @@ var PortfolioSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    btn: {
+    btc: {
         type: Number,
     },
     eth: {

@@ -19,7 +19,7 @@ router.get('/profile', mid.requiresLogin, function(req, res, next) {
                             return next(error);
                         } else {
                             portfolio = portfolio[0];
-                            return res.render('profile', { title: 'profile', name: user.name, btc: portfolio['btn'], lit: portfolio.lit, eth: portfolio.eth });
+                            return res.render('profile', { title: 'profile', name: user.name, btc: portfolio['btc'], lit: portfolio.lit, eth: portfolio.eth });
                         }
 
                     });
@@ -103,7 +103,7 @@ router.post('/register', function(req, res, next) {
                 req.session.userId = user._id;
                 var userportfolio = {
                     id: user._id,
-                    btn: 0,
+                    btc: 0,
                     eth: 0,
                     lit: 0,
 
@@ -153,9 +153,8 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
                             console.log(error)
                             return next(error);
                         } else {
-                            console.log(portfolio);
                             portfolio = portfolio[0];
-                            return res.render('dashboard', { title: 'dashboard', name: user.name, btc: portfolio.btn, lit: portfolio.lit, eth: portfolio.eth });
+                            return res.render('dashboard', { title: 'dashboard', name: user.name, btc: portfolio.btc, lit: portfolio.lit, eth: portfolio.eth });
                         }
                     });
             }
@@ -173,14 +172,14 @@ router.post('/updateBTC', mid.requiresLogin, function(req, res, next) {
                     OldPortfolio = OldPortfolio[0];
                     var btc;
                     if (req.body.trade == 'Sell') {
-                        btc = parseFloat(OldPortfolio.btn) - parseFloat(req.body.btc);
+                        btc = parseFloat(OldPortfolio.btc) - parseFloat(req.body.btc);
                         if (btc < 0) { btc = 0 }
                     } else {
-                        btc = parseFloat(OldPortfolio.btn) + parseFloat(req.body.btc);
+                        btc = parseFloat(OldPortfolio.btc) + parseFloat(req.body.btc);
                     }
                     var portfolioData = {
                         id: req.session.userId,
-                        btn: btc,
+                        btc: btc,
                         lit: OldPortfolio.lit,
                         eth: OldPortfolio.eth,
                     };
@@ -212,7 +211,7 @@ router.post('/updateETH', mid.requiresLogin, function(req, res, next) {
                     }
                     var portfolioData = {
                         id: req.session.userId,
-                        btn: OldPortfolio.btn,
+                        btc: OldPortfolio.btc,
                         lit: OldPortfolio.lit,
                         eth: eth,
                     };
@@ -246,7 +245,7 @@ router.post('/updateLIT', mid.requiresLogin, function(req, res, next) {
                     }
                     var portfolioData = {
                         id: req.session.userId,
-                        btn: OldPortfolio.btn,
+                        btc: OldPortfolio.btc,
                         lit: lit,
                         eth: OldPortfolio.eth,
                     };
