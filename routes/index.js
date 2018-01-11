@@ -6,13 +6,23 @@ var Profile = require('../models/Profile');
 var mid = require('../middleware');
 
 // GET /profile
-router.get('/profile', mid.requiresLogin, function(req, res, next) {
+router.get('/profile', mid.requiresLogin, function (req, res, next) {
     User.findById(req.session.userId)
-        .exec(function(error, user) {
+        .exec(function (error, user) {
             if (error) {
                 return next(error);
             } else {
-                return res.render('profile', { title: 'Profile', name: user.name });
+
+                Portfolio.find({ 'id': req.session.userId })
+                    .exec(function (error, portfolio) {
+                        if (error) {
+                            return next(error);
+                        } else {
+                            portfolio = portfolio[0];
+                            return res.render('profile', { title: 'profile', name: user.name, btc: portfolio['btn'], lit: portfolio.lit, eth: portfolio.eth });
+                        }
+
+                    });
             }
         });
 });
