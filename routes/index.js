@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var Portfolio = require('../models/portfolio');
-var Profile = require('../models/Profile');
+var Profile = require('../models/profile');
 var mid = require('../middleware');
 
 // GET /profile
