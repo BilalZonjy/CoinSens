@@ -162,36 +162,107 @@ router.get('/dashboard', mid.requiresLogin, function(req, res, next) {
         });
 });
 
-router.post('/updateBTC', mid.requiresLogin, function (req, res, next) {
-    Portfolio.find({ 'id': req.session.userId })
-        .exec(function (error, OldPortfolio) {
-            if (error) {
-                console.log(error)
-                return next(error);
-            } else {
-                OldPortfolio = OldPortfolio[0];
-                var btc;
-                if (req.body.trade == 'Sell') {
-                    btc = parseFloat(OldPortfolio.btn) - parseFloat(req.body.btc);
-                    if(btc <0){btc =0}
+router.post('/updateBTC', mid.requiresLogin, function(req, res, next) {
+    if (req.body.btc) {
+        Portfolio.find({ 'id': req.session.userId })
+            .exec(function(error, OldPortfolio) {
+                if (error) {
+                    console.log(error)
+                    return next(error);
                 } else {
-                    btc = parseFloat(OldPortfolio.btn) + parseFloat(req.body.btc);
+                    OldPortfolio = OldPortfolio[0];
+                    var btc;
+                    if (req.body.trade == 'Sell') {
+                        btc = parseFloat(OldPortfolio.btn) - parseFloat(req.body.btc);
+                        if (btc < 0) { btc = 0 }
+                    } else {
+                        btc = parseFloat(OldPortfolio.btn) + parseFloat(req.body.btc);
+                    }
+                    var portfolioData = {
+                        id: req.session.userId,
+                        btn: btc,
+                        lit: OldPortfolio.lit,
+                        eth: OldPortfolio.eth,
+                    };
+                    Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function(error, user) {
+                        if (error) { console.log(error) }
+                    });
+                    return res.redirect('/profile');
                 }
-                var portfolioData = {
-                    id: req.session.userId,
-                    btn: btc,
-                    lit: OldPortfolio.lit,
-                    eth: OldPortfolio.eth,
-                };
-                Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function (error, user) {
-                    if (error) { console.log(error) }
-                });
-                return res.redirect('/profile');
-            }
 
-        });
-
+            });
+    }
 });
+
+router.post('/updateETH', mid.requiresLogin, function(req, res, next) {
+    if (req.body.eth) {
+        Portfolio.find({ 'id': req.session.userId })
+            .exec(function(error, OldPortfolio) {
+                if (error) {
+                    console.log(error)
+                    return next(error);
+                } else {
+                    OldPortfolio = OldPortfolio[0];
+                    var eth;
+                    if (req.body.trade == 'Sell') {
+                        eth = parseFloat(OldPortfolio.eth) - parseFloat(req.body.eth);
+                        if (eth < 0) { eth = 0 }
+                    } else {
+                        eth = parseFloat(OldPortfolio.eth) + parseFloat(req.body.eth);
+                    }
+                    var portfolioData = {
+                        id: req.session.userId,
+                        btn: OldPortfolio.btn,
+                        lit: OldPortfolio.lit,
+                        eth: eth,
+                    };
+                    Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function(error, user) {
+                        if (error) { console.log(error) }
+                    });
+
+                    return res.redirect('/profile');
+                }
+
+            });
+    }
+});
+
+
+router.post('/updateLIT', mid.requiresLogin, function(req, res, next) {
+    if (req.body.lit) {
+        Portfolio.find({ 'id': req.session.userId })
+            .exec(function(error, OldPortfolio) {
+                if (error) {
+                    console.log(error)
+                    return next(error);
+                } else {
+                    OldPortfolio = OldPortfolio[0];
+                    var lit;
+                    if (req.body.trade == 'Sell') {
+                        lit = parseFloat(OldPortfolio.lit) - parseFloat(req.body.lit);
+                        if (lit < 0) { lit = 0 }
+                    } else {
+                        lit = parseFloat(OldPortfolio.lit) + parseFloat(req.body.lit);
+                    }
+                    var portfolioData = {
+                        id: req.session.userId,
+                        btn: OldPortfolio.btn,
+                        lit: lit,
+                        eth: OldPortfolio.eth,
+                    };
+                    Portfolio.update({ id: req.session.userId }, portfolioData, { upsert: true }, function(error, user) {
+                        if (error) { console.log(error) }
+                    });
+
+                    return res.redirect('/profile');
+                }
+
+            });
+    }
+});
+
+
+
 router.post('/updateProfile', mid.requiresLogin, function(req, res, next) {
 
     var profileData = {
