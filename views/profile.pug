@@ -172,16 +172,31 @@ block content
                                   |
                                   button.btn.btn-success(type='submit' name="trade" value="Buy") Buy
                                   button.btn.btn-danger(type='submit' name="trade" value="Sell") Sell 
+                                  
                             |                                     
                             li.timeline-item
                               .panel.panel-dark
                                 .panel-body
-                                  img.img-circle(src='/images/ethAv.jpg', width='30', height='30', alt='')
+                                  form(method='POST' action="/updateETH")
+                                    div.form-group
+                                      img.img-circle(src='/images/ethAv.jpg', width='30', height='30', alt='')
+                                      input#btc.form-control(type='number', placeholder='' name='btc')
+                                      a(href='#')  
+                                    |
+                                    button.btn.btn-success(type='submit' name="trade" value="Buy") Buy
+                                    button.btn.btn-danger(type='submit' name="trade" value="Sell") Sell 
                             |                                     
                             li.timeline-item
                               .panel.panel-dark
                                 .panel-body
-                                  img.img-circle(src='/images/ltcAv.jpg', width='30', height='30', alt='')
+                                  form(method='POST' action="/updateLIT")
+                                    div.form-group
+                                      img.img-circle(src='/images/ltcAv.jpg', width='30', height='30', alt='')
+                                      input#btc.form-control(type='number', placeholder='' name='btc')
+                                      a(href='#')  
+                                    |
+                                    button.btn.btn-success(type='submit' name="trade" value="Buy") Buy
+                                    button.btn.btn-danger(type='submit' name="trade" value="Sell") Sell 
                       |                         
                       .col-md-3.m-t-lg
                         .panel.panel-dark
