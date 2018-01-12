@@ -13,6 +13,9 @@ app.set('view engine', 'jade');
 app.get('/profile', function (req, res) {
   res.render('profile');
 });
+app.get('/dashboard', function (req, res) {
+  res.render('dashboard');
+});
 
 app.post('profile', multer({ dest: './uploads/' }).single('upl'), function (req, res) {
   console.log(req.body); 
