@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     var today = moment();
     var end = today.format('YYYY-MM-DD');
-    var start = today.subtract(7, 'days').format('YYYY-MM-DD');
+    var start = today.subtract(15, 'days').format('YYYY-MM-DD');
     var url_BTC_price = 'https://api.coindesk.com/v1/bpi/historical/close.json?start=' + start + '&end=' + end;
 
     console.log(url_BTC_price);
@@ -40,7 +40,7 @@ $(document).ready(function() {
                     } else if (i == dates.length - 1) {
                         xticks.push([i, '']);
                     } else {
-                        xticks.push([i, x]);
+                        xticks.push([i, x.slice(5)]);
                     }
 
 
