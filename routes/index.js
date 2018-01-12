@@ -7,13 +7,11 @@ var mid = require('../middleware');
 
 // GET /profile
 router.get('/profile', mid.requiresLogin, function(req, res, next) {
-    console.log(req.session.userId);
     User.findById(req.session.userId)
         .exec(function(error, user) {
             if (error) {
                 return next(error);
             } else {
-                console.log(user);
                 Portfolio.find({ 'id': req.session.userId })
                     .exec(function(error, portfolio) {
                         if (error) {
