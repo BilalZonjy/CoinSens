@@ -209,17 +209,17 @@ block content
                       |                                             
                       .panel-body
                         ul.list-unstyled
-                          li
+                          li#btccoin
                             | Bitcoin
                             .text-success.pull-right
                               | 8%
                               i.fa.fa-level-down
                           |                                                     
-                          li
+                          li#ethcoin
                             | Etherum
                             .text-success.pull-right
                               | 33%
-                              i.fa.fa-level-up
+                              i#ethcoinlevel.fa.fa-level-up
                           |                                                     
                           li
                             | Litecoin
@@ -227,29 +227,29 @@ block content
                               | 16%
                               i.fa.fa-level-up
                           |                                                     
-                          li
+                          li#ripplecoin
                             | Ripple
                             .text-danger.pull-right
                               | 13%
-                              i.fa.fa-level-down
+                              i#ripplelevel.fa.fa-level-down
                           |                                                     
-                          li
+                          li#monerocoin
                             | Monero
                             .text-danger.pull-right
                               | 7%
-                              i.fa.fa-level-down
+                              i#monerolevel.fa.fa-level-down
                           |                                                     
-                          li
+                          li#dashcoin
                             | Dash
                             .text-success.pull-right
                               | 4%
-                              i.fa.fa-level-up
+                              i#dashlevel.fa.fa-level-up
                           |                                                     
-                          li
+                          li#dodgecoin
                             | DodgeCoin
                             .text-success.pull-right
                               | 3%
-                              i.fa.fa-level-up
+                              i#dodgelevel.fa.fa-level-up
             #flotchart2
             |                         
             //- .col-lg-3.col-md-6
@@ -485,34 +485,36 @@ block content
             .col-lg-12.col-md-6
               .col-lg-6
                 .panel.twitter-box
-                  .panel-body
+                  .panel-body#twitterbox
                     .live-tile(data-mode='flip', data-speed='750', data-delay='3000')
                       span.tile-title.pull-right News
                       |                                         
                       //- i.fa.fa-twitter
                       |                                         
-                      div
-                        h2.no-m *All* crypto communities, ethereum included, should heed these words of warning...
-                        span.tile-date 13 January, 2018
+                      div#article1
+                        a(href="")
+                          h2.no-m *All* crypto communities, ethereum included, should heed these words of warning...
+                          span.tile-date 13 January, 2018
                       |                                         
-                      div
-                        h2.no-m Those who didn’t buy $XRP on the dip will regret this when Japan wakes up! 
-                        span.tile-date 13 January, 2018
+                      div#article2
+                        a(href="")
+                          h2.no-m Those who didn’t buy $XRP on the dip will regret this when Japan wakes up! 
+                          span.tile-date 13 January, 2018
                 |
               .col-lg-6                            
                 .panel.facebook-box
-                  .panel-body
+                  .panel-body#facebookbox
                     .live-tile(data-mode='carousel', data-direction='horizontal', data-speed='750', data-delay='4500')
                       span.tile-title.pull-right Community Pages
                       |                                         
                       //- i.fa.fa-facebook
                       |                                         
-                      div
+                      div#facebox1
                         a(href="https://www.facebook.com/cryptocurrency/")
                           h2.no-m Check out our actual TOP10 CryptoCurrency price index! ...
                           span.tile-date @cryptocurrency
                       |                                         
-                      div
+                      div#facebox2
                         a(href="https://www.facebook.com/cryptocurrencyupdates/")
                           h2.no-m There are a lot of scams out there. Do your ICO research!...
                           span.tile-date @cryptocurrencyupdates

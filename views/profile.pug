@@ -127,7 +127,9 @@ block content
                         h4.text-center Hello
                         |                             
                         h3.text-center.lead #{name}
-                        |                             
+                        |     
+                        h5.text-center.lead #{city}  
+                        h5.text-center.lea d#{website}                      
                         hr
                         |                             
                         ul.list-unstyled.text-center
@@ -136,10 +138,10 @@ block content
                               
                               form(method='POST' action='/updateProfile')
                                 div.form-group
-                                  label(for ='city') Change City: #{city}
+                                  label(for ='city') Change City: 
                                   input#city.form-control(type='text',  placeholder='Current City' name='city')
                                 div.form-group
-                                  label(for='website') Change Website: #{website}
+                                  label(for='website') Change Website: 
                                   input#name.form-control(type='text', placeholder='Your Website' name='website')
                                   a(href='#')  
                                 |
