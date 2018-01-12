@@ -143,7 +143,7 @@ block content
                                   input#name.form-control(type='text', placeholder='Your Website' name='website')
                                   a(href='#')  
                                 |
-                                button.btn.btn-success(type='submit') Submit Changes                                
+                                button.btn.btn-info(type='submit') Submit Changes                                
                         |                               
                         //- form(method='POST', enctype='multipart/form-data')
                         //- div.form-group
@@ -153,50 +153,57 @@ block content
                         //-     | Upload Profile Image                 
                       |                         
                       .col-md-6.m-t-lg
-                        .panel.panel-dark
+                        .panel
                             .post
                               h3.bottommargin_40 Cryptocurrency Calculator:
                               include price                                     
                               
-                        |                             
-                        .profile-timeline
-                          ul.list-unstyled
-                            li.timeline-item
-                              .panel.panel-dark
-                                .panel-body
-                                form(method='POST' action="/updateBTC")
-                                  div.form-group
-                                    img.img-circle(src='/images/btcAV.png', width='30', height='30', alt='')
-                                    input#btc.form-control(type='number', placeholder='' name='btc')
-                                    a(href='#')  
-                                  |
-                                  button.btn.btn-success(type='submit' name="trade" value="Buy") Buy
-                                  button.btn.btn-danger(type='submit' name="trade" value="Sell") Sell 
-                                  
-                            |                                     
-                            li.timeline-item
-                              .panel.panel-dark
-                                .panel-body
-                                form(method='POST' action="/updateETH")
-                                  div.form-group
-                                    img.img-circle(src='/images/ethAV.jpg', width='30', height='30', alt='')
-                                    input#eth.form-control(type='number', placeholder='' name='eth')
-                                    a(href='#')  
-                                  |
-                                  button.btn.btn-success(type='submit' name="trade" value="Buy") Buy
-                                  button.btn.btn-danger(type='submit' name="trade" value="Sell") Sell 
-                            |                                     
-                            li.timeline-item
-                              .panel.panel-dark
-                                .panel-body
-                                form(method='POST' action="/updateLIT")
-                                  div.form-group
-                                    img.img-circle(src='/images/ltcAv.jpg', width='30', height='30', alt='')
-                                    input#lit.form-control(type='number', placeholder='' name='lit')
-                                    a(href='#')  
-                                  |
-                                  button.btn.btn-success(type='submit' name="trade" value="Buy") Buy
-                                  button.btn.btn-danger(type='submit' name="trade" value="Sell") Sell 
+                        |
+                        .col-md-4                       
+                          .profile-timeline
+                            ul.list-unstyled
+                              li.timeline-item
+                                .panel
+                                  .panel-body
+                                  form(method='POST' action="/updateBTC")
+                                    div.form-group
+                                      img.img-circle.center(src='/images/btcAV.png', width='32.5%', height='',style={'margin-bottom':'10px'})
+                                      input#btc.form-control(type='number', placeholder='' name='btc')
+                                      a(href='#')  
+                                    |
+                                    button.btn.btn-success(type='submit' name="trade" value="Buy" style = 'width:50%') Buy
+                                    button.btn.btn-danger(type='submit' name="trade" value="Sell" style = 'width:50%') Sell 
+                                    
+                              | 
+                        .col-md-4
+                          .profile-timeline
+                            ul.list-unstyled                                    
+                              li.timeline-item
+                                .panel
+                                  .panel-body
+                                  form(method='POST' action="/updateETH")
+                                    div.form-group
+                                      img.img-circle.center(src='/images/ethAV.jpg', width='32.5%', height='',style={'margin-bottom':'10px'})
+                                      input#eth.form-control(type='number', placeholder='' name='eth')
+                                      a(href='#')  
+                                    |
+                                    button.btn.btn-success(type='submit' name="trade" value="Buy" style = 'width:50%', 'height:100%') Buy
+                                    button.btn.btn-danger(type='submit' name="trade" value="Sell" style = 'width:50%', 'height:100%') Sell 
+                              | 
+                        .col-md-4
+                          .profile-timeline
+                            ul.list-unstyled                                    
+                              li.timeline-item
+                                .panel
+                                  .panel-body
+                                  form(method='POST' action="/updateLIT")
+                                    div.form-group
+                                      img.img-circle.center(src='/images/ltcAv.jpg', width='32.5%', height='',style={'margin-bottom':'10px'})
+                                      input#lit.form-control(type='number', placeholder='' name='lit')
+                                      a(href='#')  
+                                    |
+                                    button.btn.btn-success(type='submit' name="trade" value="Buy" style = 'width:50%') Buy
+                                    button.btn.btn-danger(type='submit' name="trade" value="Sell" style = 'width:50%') Sell 
                       |                         
                       .col-md-3.m-t-lg
                         .panel.panel-dark
@@ -227,13 +234,10 @@ block content
                         .col-lg-4.col-md-6
                         .panel.panel-dark
                           .panel-heading
-                            h4.panel-title #{name}'s Portfolio
-                            .panel-control
-                              a.panel-reload(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='', data-original-title='Reload')
-                                i.icon-reload
+                            h4.panel-title.center #{name}'s Portfolio
                           .panel-body
-                            .slimScrollDiv(style='position: relative; overflow: hidden; width: auto; height: 20%;')
-                              .inbox-widget.slimscroll(style='overflow: hidden; width: auto; height: 30%;')
+                            .slimScrollDiv(style='position: relative; overflow: hidden; width: auto; height: 40%;')
+                              .inbox-widget.slimscroll(style='overflow: hidden; width: auto; height: 100%;')
                                   .inbox-item
                                     .inbox-item-img
                                       img.img-circle(src='/images/btcAV.png', alt='')

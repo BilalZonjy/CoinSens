@@ -1,6 +1,6 @@
 
 
-console.log('test')
+// console.log('test')
 
 // function createNode(element) {
 //     return document.createElement(element);
