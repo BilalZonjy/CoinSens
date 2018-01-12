@@ -114,11 +114,13 @@ router.post('/register', function(req, res, next) {
             name: req.body.name,
             password: req.body.password,
         };
-
+        var err = new Error('Unvaild Sign up.');
         // use schema's `create` method to insert document into Mongo
         User.create(userData, function(error, user) {
             if (error) {
-                return next(error);
+                console.log(error);
+
+                return next(err);
             } else {
                 req.session.userId = user._id;
                 var userportfolio = {
@@ -131,7 +133,7 @@ router.post('/register', function(req, res, next) {
                 Portfolio.create(userportfolio, function(error, user) {
                     if (error) {
                         console.log(error);
-                        return next(error);
+                        return next(err);
                     } else {
                         var userprofile = {
                             id: user._id,
@@ -142,9 +144,9 @@ router.post('/register', function(req, res, next) {
                         Profile.create(userprofile, function(error, user) {
                             if (error) {
                                 console.log(error);
-                                return next(error);
+                                return next(err);
                             } else {
-                                req.session.userId = user._id;
+                                // req.session.userId = user._id;
                                 return res.redirect('/profile');
                             }
                         });
