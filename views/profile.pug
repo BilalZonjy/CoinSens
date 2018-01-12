@@ -127,7 +127,10 @@ block content
                         h4.text-center Hello
                         |                             
                         h3.text-center.lead #{name}
-                        |                             
+                        |                          
+                        h4 #{city}
+                        |
+                        h4 #{website}   
                         hr
                         |                             
                         ul.list-unstyled.text-center
@@ -234,7 +237,7 @@ block content
                         .col-lg-4.col-md-6
                         .panel.panel-dark
                           .panel-heading
-                            h4.panel-title.center #{name}'s Portfolio
+                          h4(style={'text-align':'center','margin-left':'0px'}) #{name}'s Portfolio
                           .panel-body
                             .slimScrollDiv(style='position: relative; overflow: hidden; width: auto; height: 40%;')
                               .inbox-widget.slimscroll(style='overflow: hidden; width: auto; height: 100%;')

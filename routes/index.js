@@ -27,6 +27,7 @@ router.get('/profile', mid.requiresLogin, function(req, res, next) {
         });
 });
 
+
 // GET /logout
 router.get('/logout', function(req, res, next) {
     if (req.session) {
