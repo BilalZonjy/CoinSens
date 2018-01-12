@@ -22,7 +22,6 @@ $(document).ready(function() {
     var start = today.subtract(15, 'days').format('YYYY-MM-DD');
     var url_BTC_price = 'https://api.coindesk.com/v1/bpi/historical/close.json?start=' + start + '&end=' + end;
 
-    console.log(url_BTC_price);
     var flot1 = function() {
         fetch(url_BTC_price)
             .then((resp) => resp.json()) // Transform the data into json
