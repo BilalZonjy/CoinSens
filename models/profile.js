@@ -16,10 +16,10 @@ var ProfileSchema = new mongoose.Schema({
 // authenticate input against database documents
 ProfileSchema.statics.authenticate = function(id, callback) {
         Profile.findOne({ id: id })
-            .exec(function(error, Profile) {
+            .exec(function(error, profile) {
                 if (error) {
                     return callback(error);
-                } else if (!Profile) {
+                } else if (!profile) {
                     var err = new Error('User not found.');
                     err.status = 401;
                     return callback(err);

@@ -21,10 +21,10 @@ var PortfolioSchema = new mongoose.Schema({
 // authenticate input against database documents
 PortfolioSchema.statics.authenticate = function(id, callback) {
         Portfolio.findOne({ id: id })
-            .exec(function(error, Portfolio) {
+            .exec(function(error, portfolio) {
                 if (error) {
                     return callback(error);
-                } else if (!Portfolio) {
+                } else if (!portfolio) {
                     var err = new Error('User not found.');
                     err.status = 401;
                     return callback(err);

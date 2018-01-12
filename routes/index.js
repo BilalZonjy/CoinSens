@@ -7,12 +7,13 @@ var mid = require('../middleware');
 
 // GET /profile
 router.get('/profile', mid.requiresLogin, function(req, res, next) {
+    console.log(req.session.userId);
     User.findById(req.session.userId)
         .exec(function(error, user) {
             if (error) {
                 return next(error);
             } else {
-
+                console.log(user);
                 Portfolio.find({ 'id': req.session.userId })
                     .exec(function(error, portfolio) {
                         if (error) {
@@ -24,9 +25,14 @@ router.get('/profile', mid.requiresLogin, function(req, res, next) {
                                     if (error) {
                                         return next(error);
                                     } else {
-                                        profile = profile[0];
-
-                                        return res.render('profile', { title: 'profile', name: user.name, btc: portfolio['btc'], lit: portfolio.lit, eth: portfolio.eth, city: profile.city, website: profile.website });
+                                        var userWebsite = ' ';
+                                        var userCity = ' ';
+                                        try {
+                                            profile = profile[0];
+                                            if (profile['website']) { userWebsite = profile.website; }
+                                            if (profile.city) { userCity = profile.city; }
+                                        } catch (err) {}
+                                        return res.render('profile', { title: 'profile', name: user.name, btc: portfolio['btc'], lit: portfolio.lit, eth: portfolio.eth, city: userCity, website: userWebsite });
 
 
                                     }
@@ -123,9 +129,27 @@ router.post('/register', function(req, res, next) {
 
                 };
                 Portfolio.create(userportfolio, function(error, user) {
-                    if (error) { console.log(error) }
+                    if (error) {
+                        console.log(error);
+                        return next(error);
+                    } else {
+                        var userprofile = {
+                            id: user._id,
+                            city: '',
+                            website: '',
+                        };
+
+                        Profile.create(userprofile, function(error, user) {
+                            if (error) {
+                                console.log(error);
+                                return next(error);
+                            } else {
+                                req.session.userId = user._id;
+                                return res.redirect('/profile');
+                            }
+                        });
+                    }
                 });
-                return res.redirect('/profile');
             }
         });
 
