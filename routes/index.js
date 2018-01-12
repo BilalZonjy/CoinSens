@@ -19,7 +19,21 @@ router.get('/profile', mid.requiresLogin, function(req, res, next) {
                             return next(error);
                         } else {
                             portfolio = portfolio[0];
-                            return res.render('profile', { title: 'profile', name: user.name, btc: portfolio['btc'], lit: portfolio.lit, eth: portfolio.eth });
+                            Profile.find({ 'id': req.session.userId })
+                                .exec(function(error, profile) {
+                                    if (error) {
+                                        return next(error);
+                                    } else {
+                                        profile = profile[0];
+
+                                        return res.render('profile', { title: 'profile', name: user.name, btc: portfolio['btc'], lit: portfolio.lit, eth: portfolio.eth, city: profile.city, website: profile.website });
+
+
+                                    }
+                                })
+
+
+
                         }
 
                     });
