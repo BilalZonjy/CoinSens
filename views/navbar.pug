@@ -12,9 +12,11 @@ nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
         a.nav-item.nav-link(href='/contact') Contact
         a.nav-item.nav-link(href='/profile') My Profile
         
+        
       if currentUser
         div
-          img.avatar.img-circle.hidden-xs-down(src='/images/avatarCoin.png', alt='avatar')
+          a(href='/profile')
+            img.avatar.img-circle.hidden-xs-down(src='/images/avatarCoin.png', alt='avatar')
           a.btn.btn-light.pull-md-right(href='/logout') Log out
       else  
         a.btn.btn-info.pull-md-right(href='login') Login
