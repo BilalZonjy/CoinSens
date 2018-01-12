@@ -1,8 +1,7 @@
 function get_ticker_price_and_change_color(url, divID) {
-    // var btc_url_change = 'https://api.cryptonator.com/api/ticker/btc-usd';
     $.get(url, function(data) {
         var change = Math.round(data.ticker.change * 100) / 100;
-        $('#' + divID).text(Math.abs(change));
+        $('#' + divID).text(Math.abs(change) + ' $');
         if (change < 0) {
             $('#' + divID).css('color', '#b83942');
         } else {
@@ -13,11 +12,6 @@ function get_ticker_price_and_change_color(url, divID) {
 
 
 }
-
-
-
-
-
 const url = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,DASH,BTC,LTC&tsyms=BTC,USD,EUR';
 
 function get_prices() {
@@ -30,18 +24,18 @@ function get_prices() {
         $('#currentLIT').removeClass('counter');
         $('#currentBTC').html(data.BTC.USD);
         var btcAmount = $('#currentBTC').data('cry').btc * data.BTC.USD;
-        var btcText = $('#calcBTC').text().slice(0, 7);
-        $('#calcBTC').text(btcText + Math.round(btcAmount * 100) / 100 + ' USD');
+        var btcText = $('#calcBTC').text().split('|')[0];
+        $('#calcBTC').text(btcText + '| ' + Math.round(btcAmount * 100) / 100 + ' USD');
         $('#currentBTC').addClass('counter');
         $('#currentETH').html(data.ETH.USD);
         var ethAmount = $('#currentETH').data('cry').eth * data.ETH.USD;
-        var ethText = $('#calcETH').text();
-        $('#calcETH').text(ethText + Math.round(ethAmount * 100) / 100 + ' USD');
+        var ethText = $('#calcETH').text().split('|')[0];
+        $('#calcETH').text(ethText + '| ' + Math.round(ethAmount * 100) / 100 + ' USD');
         $('#currentETH').addClass('counter');
         $('#currentLIT').html(data.LTC.USD);
         var litAmount = $('#currentLIT').data('cry').lit * data.LTC.USD;
-        var litText = $('#calcLIT').text();
-        $('#calcLIT').text(litText + Math.round(litAmount * 100) / 100 + ' USD');
+        var litText = $('#calcLIT').text().split('|')[0];
+        $('#calcLIT').text(litText + '| ' + Math.round(litAmount * 100) / 100 + ' USD');
 
         $('#currentLIT').addClass('counter');
 
