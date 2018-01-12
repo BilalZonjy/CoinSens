@@ -50,4 +50,4 @@ function get_prices() {
 }
 
 get_prices();
-setInterval(get_prices, 30000);
+setInterval(get_prices, 10000);
