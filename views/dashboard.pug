@@ -176,7 +176,7 @@ block content
                       .progress-bar.progress-bar-warning(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 100%')
             |                         
             .col-lg-3.col-md-6
-              .panel.info-box.panel-dark
+              .panel.info-box
                 .panel-body
                   .info-box-stats
                     |
@@ -191,7 +191,7 @@ block content
                       .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100', style='width: 100%')
           // Row
           .row
-            .col-lg-9.col-md-12
+            .col-lg-12.col-md-12
               .panel.panel-dark
                 .row
                   .col-sm-8
@@ -250,39 +250,101 @@ block content
                             .text-success.pull-right
                               | 3%
                               i.fa.fa-level-up
+            #flotchart2
             |                         
-            .col-lg-3.col-md-6
-              .panel.panel-dark(style='height: 50%;')
-                .panel-heading
-                  h4.panel-title Bitcoin Current (Real-Time)
-                  |                                     
-                  .panel-control
-                    a.panel-collapse(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='Expand/Collapse')
-                      i.icon-arrow-down
-                    |                                         
-                    a.panel-reload(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='Reload')
-                      i.icon-reload
-                |                                 
-                .panel-body
-                  .server-load
-                    .server-stat
-                      span
-                      |                                             
-                      p Real time
-                    |                                         
-                  |                                     
-                  #flotchart2
+            //- .col-lg-3.col-md-6
+            //-   .panel.panel-dark(style='height: 50%;')
+            //-     .panel-heading
+            //-       h4.panel-title Bitcoin Current (Real-Time)
+            //-       |                                     
+            //-       .panel-control
+            //-         a.panel-collapse(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='Expand/Collapse')
+            //-           i.icon-arrow-down
+            //-         |                                         
+            //-         a.panel-reload(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='Reload')
+            //-           i.icon-reload
+            //-     |                                 
+            //-     .panel-body
+            //-       .server-load
+            //-         .server-stat
+            //-           span
+            //-           |                                             
+            //-           p Real time
+            //-         |                                         
+            //-       |                                     
+            //-       #flotchart2
             |                         
-            .col-lg-5.col-md-6
+            .col-lg-7.col-md-12
               .panel.panel-dark
                 .panel-heading
-                  h4.panel-title Current Prices
-                  |                                     
+                  h4.panel-title Companies that accept Cryptocurrency
                   .panel-control
                     a.panel-reload(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='Reload')
                       i.icon-reload
                 |                                 
                 .panel-body
+                  .table-responsive.project-stats
+                    table.table
+                      thead
+                        tr
+                          th Year 
+                          |                                                    
+                          th Company
+                          |                                                    
+                          th Status
+                          |
+                      |                                            
+                      tbody
+                        tr
+                          th(scope='row') 2014
+                          |                                                    
+                          td Subway
+                          |                                                    
+                          td
+                            span.label.label-success Yes                                              
+                        tr
+                          th(scope='row') 2014
+                          |                                                    
+                          td Dell
+                          |                                                    
+                          td
+                            span.label.label-success Yes
+                          |                                                    
+                        |                                                
+                        tr
+                          th(scope='row') 2014
+                          |                                                    
+                          td Expedia
+                          |                                                    
+                          td
+                            span.label.label-success Yes
+                          |                                                    
+                        |                                                
+                        tr
+                          th(scope='row') 2014
+                          |                                                    
+                          td DISH
+                          |                                                    
+                          td
+                            span.label.label-success Yes
+                          |                                                    
+                        |                                                
+                        tr
+                          th(scope='row') 2018
+                          |                                                    
+                          td Walmart
+                          |                                                    
+                          td
+                            span.label.label-warning Possibly
+                          |                                                    
+                        |                                                
+                        tr
+                          th(scope='row') 2018
+                          |                                                    
+                          td McDonalds
+                          |                                                    
+                          td
+                            span.label.label-warning Possibly
             //-       .weather-widget
             //-         .row
             //-           .col-md-12
@@ -389,7 +451,7 @@ block content
             //-                   | 82
             //-                   sup &deg;F
             |                         
-            .col-lg-4.col-md-6
+            .col-lg-5.col-md-6
               .panel.panel-dark
                 .panel-heading
                   h4.panel-title #{name}'s Portfolio
@@ -420,37 +482,39 @@ block content
 
                                   
                                 
-            .col-lg-3.col-md-6
-              .panel.twitter-box
-                .panel-body
-                  .live-tile(data-mode='flip', data-speed='750', data-delay='3000')
-                    span.tile-title.pull-right News
-                    |                                         
-                    //- i.fa.fa-twitter
-                    |                                         
-                    div
-                      h2.no-m *All* crypto communities, ethereum included, should heed these words of warning...
-                      span.tile-date 13 January, 2018
-                    |                                         
-                    div
-                      h2.no-m Those who didn’t buy $XRP on the dip will regret this when Japan wakes up! 
-                      span.tile-date 13 January, 2018
-              |                             
-              .panel.facebook-box
-                .panel-body
-                  .live-tile(data-mode='carousel', data-direction='horizontal', data-speed='750', data-delay='4500')
-                    span.tile-title.pull-right Facebook
-                    |                                         
-                    //- i.fa.fa-facebook
-                    |                                         
-                    div
-                      h2.no-m Check out our actual TOP10 CryptoCurrency price index! ...
-                      span.tile-date @cryptocurrency
-                    |                                         
-                    div
-                      h2.no-m There are a lot of scams out there. Do your ICO research!...
-                      span.tile-date @cryptocurrencyupdates
-            |                         
+            .col-lg-12.col-md-6
+              .col-lg-6
+                .panel.twitter-box
+                  .panel-body
+                    .live-tile(data-mode='flip', data-speed='750', data-delay='3000')
+                      span.tile-title.pull-right News
+                      |                                         
+                      //- i.fa.fa-twitter
+                      |                                         
+                      div
+                        h2.no-m *All* crypto communities, ethereum included, should heed these words of warning...
+                        span.tile-date 13 January, 2018
+                      |                                         
+                      div
+                        h2.no-m Those who didn’t buy $XRP on the dip will regret this when Japan wakes up! 
+                        span.tile-date 13 January, 2018
+                |
+              .col-lg-6                            
+                .panel.facebook-box
+                  .panel-body
+                    .live-tile(data-mode='carousel', data-direction='horizontal', data-speed='750', data-delay='4500')
+                      span.tile-title.pull-right Facebook
+                      |                                         
+                      //- i.fa.fa-facebook
+                      |                                         
+                      div
+                        h2.no-m Check out our actual TOP10 CryptoCurrency price index! ...
+                        span.tile-date @cryptocurrency
+                      |                                         
+                      div
+                        h2.no-m There are a lot of scams out there. Do your ICO research!...
+                        span.tile-date @cryptocurrencyupdates
+              |                         
         // Main Wrapper
         .page-footer
           p.no-s 2018 CoinSense - CWRU Bootcamp Project.
