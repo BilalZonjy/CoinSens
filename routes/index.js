@@ -74,7 +74,7 @@ router.post('/login', function(req, res, next) {
                 return next(err);
             } else {
                 req.session.userId = user._id;
-                return res.redirect('/profile');
+                return res.redirect('/dashboard');
             }
         });
     } else {
@@ -145,7 +145,7 @@ router.post('/register', function(req, res, next) {
                                 return next(err);
                             } else {
                                 // req.session.userId = user._id;
-                                return res.redirect('/profile');
+                                return res.redirect('/dashboard');
                             }
                         });
                     }
@@ -172,9 +172,9 @@ router.get('/', function(req, res, next) {
 router.get('/about', function(req, res, next) {
     return res.render('about', { title: 'About' });
 });
-router.get('/news', function(req, res, next) {
-    return res.render('news', { title: 'news' });
-});
+// router.get('/news', function(req, res, next) {
+//     return res.render('news', { title: 'news' });
+// });
 // router.get('/dashboard', function (req, res, next) {
 //   return res.render('dashboard', { title: 'Dashboard' });
 // });
