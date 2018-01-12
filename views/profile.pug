@@ -124,17 +124,17 @@ block content
                   #main-wrapper
                     .row
                       .col-md-3.user-profile
-                        h4.text-center Hello
+                        h4.text-center  #{name}
                         |                             
-                        h3.text-center.lead #{name}
+                        h3.text-center.lead
                         |     
-                        h5.text-center.lead #{city}  
-                        h5.text-center.lea d#{website}                      
+                        p.text-center.title #{city}  
+                        p.text-center.title #{website}                      
                         hr
                         |                             
                         ul.list-unstyled.text-center
                           li
-                            p
+                            p Update Your Information
                               
                               form(method='POST' action='/updateProfile')
                                 div.form-group
@@ -143,7 +143,6 @@ block content
                                 div.form-group
                                   label(for='website') Change Website: 
                                   input#name.form-control(type='text', placeholder='Your Website' name='website')
-                                  a(href='#')  
                                 |
                                 button.btn.btn-info(type='submit') Submit Changes                                
                         |                               
