@@ -211,45 +211,45 @@ block content
                         ul.list-unstyled
                           li#btccoin
                             | Bitcoin
-                            .text-success.pull-right
+                            #btccoinlevel.text-success.pull-right
                               | 8%
                               i.fa.fa-level-down
                           |                                                     
                           li#ethcoin
                             | Etherum
-                            .text-success.pull-right
+                            #ethcoinlevel.text-success.pull-right
                               | 33%
-                              i#ethcoinlevel.fa.fa-level-up
+                              i.fa.fa-level-up
                           |                                                     
-                          li
+                          li#litcoin
                             | Litecoin
-                            .text-success.pull-right
+                            #litcoinlevel.text-success.pull-right
                               | 16%
                               i.fa.fa-level-up
                           |                                                     
                           li#ripplecoin
                             | Ripple
-                            .text-danger.pull-right
+                            #ripplelevel.text-danger.pull-right
                               | 13%
-                              i#ripplelevel.fa.fa-level-down
+                              i.fa.fa-level-down
                           |                                                     
                           li#monerocoin
                             | Monero
-                            .text-danger.pull-right
+                            #monerolevel.text-danger.pull-right
                               | 7%
-                              i#monerolevel.fa.fa-level-down
+                              i.fa.fa-level-down
                           |                                                     
                           li#dashcoin
                             | Dash
-                            .text-success.pull-right
+                            #dashlevel.text-success.pull-right
                               | 4%
-                              i#dashlevel.fa.fa-level-up
+                              i.fa.fa-level-up
                           |                                                     
-                          li#dodgecoin
-                            | DodgeCoin
-                            .text-success.pull-right
+                          li#dogecoin
+                            | DogeCoin
+                            #dogelevel.text-success.pull-right
                               | 3%
-                              i#dodgelevel.fa.fa-level-up
+                              i.fa.fa-level-up
             #flotchart2
             |                         
             //- .col-lg-3.col-md-6
@@ -454,7 +454,7 @@ block content
             .col-lg-5.col-md-6
               .panel.panel-dark
                 .panel-heading
-                  h4.panel-title #{name}'s Portfolio
+                  h4.panel-title #{name}'s Wallet
                   .panel-control
                     a.panel-reload(href='javascript:void(0);', data-toggle='tooltip', data-placement='top', title='', data-original-title='Reload')
                       i.icon-reload

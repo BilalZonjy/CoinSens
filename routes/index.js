@@ -174,8 +174,8 @@ router.get('/', function(req, res, next) {
 router.get('/about', function(req, res, next) {
     return res.render('about', { title: 'About' });
 });
-router.get('/facts', function(req, res, next) {
-    return res.render('facts', { title: 'CryptoKnow' });
+router.get('/news', function(req, res, next) {
+    return res.render('news', { title: 'news' });
 });
 // router.get('/dashboard', function (req, res, next) {
 //   return res.render('dashboard', { title: 'Dashboard' });
