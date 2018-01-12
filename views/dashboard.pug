@@ -6,7 +6,7 @@ block content
     .menu-wrap
       nav.profile-menu
         .profile
-          img(src='assets/images/profile-menu-image.png', width='60', alt='#{name}')
+          img(src='/images/bitkey.png', width='60', alt='#{name}')
           span #{name}
         |
       |             
@@ -465,7 +465,7 @@ block content
                           .inbox-item-img
                             img.img-circle(src='/images/btcAV.png', alt='')
                           p.live-title Your Bitcoins
-                            p.inbox-item-date #{btc} BTC | #{calcBTC} USD
+                            p(data-btc="calcBTC")&attributes({'btc':{btc}}).inbox-item-date #{btc} BTC | USD
                           p.inbox-item-date 
                         .inbox-item
                           .inbox-item-img
