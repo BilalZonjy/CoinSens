@@ -16,18 +16,18 @@ $.get(url, function(data) {
     $('#currentBTC').html(data.BTC.USD);
     var btcAmount = $('#currentBTC').data('cry').btc * data.BTC.USD;
     var btcText = $('#calcBTC').text();
-    $('#calcBTC').text(btcText + btcAmount + ' USD');
+    $('#calcBTC').text(btcText + Math.round(btcAmount * 100) / 100 + ' USD');
     console.log(btcAmount);
     $('#currentBTC').addClass('counter');
     $('#currentETH').html(data.ETH.USD);
     var ethAmount = $('#currentETH').data('cry').eth * data.ETH.USD;
     var ethText = $('#calcETH').text();
-    $('#calcETH').text(ethText + ethAmount + ' USD');
+    $('#calcETH').text(ethText + Math.round(ethAmount * 100) / 100 + ' USD');
     $('#currentETH').addClass('counter');
     $('#currentLIT').html(data.LTC.USD);
     var litAmount = $('#currentLIT').data('cry').lit * data.LTC.USD;
     var litText = $('#calcLIT').text();
-    $('#calcLIT').text(litText + litAmount + ' USD');
+    $('#calcLIT').text(litText + Math.round(litAmount * 100) / 100 + ' USD');
 
     $('#currentLIT').addClass('counter');
 
