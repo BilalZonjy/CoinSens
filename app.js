@@ -21,10 +21,10 @@ app.use(function(req, res, next) {
 
 // // mongodb connection
 // development db
-mongoose.connect("mongodb://localhost:27017/coinSense", { useMongoClient: true });
+// mongoose.connect("mongodb://localhost:27017/coinSense", { useMongoClient: true });
 
 // // deployment db
-// mongoose.connect("mongodb://heroku_q941fpr3:o956fhe81vo4v82dpfupnc92js@ds251277.mlab.com:51277/heroku_q941fpr3");
+mongoose.connect("mongodb://heroku_q941fpr3:o956fhe81vo4v82dpfupnc92js@ds251277.mlab.com:51277/heroku_q941fpr3");
 
 var db = mongoose.connection;
 // mongo error
@@ -65,6 +65,6 @@ app.use(function(err, req, res, next) {
 
 
 // listen on port 3000
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log('Express app listening on port  ' + port);
 });
