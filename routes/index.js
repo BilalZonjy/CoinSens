@@ -304,15 +304,42 @@ router.post('/updateLIT', mid.requiresLogin, function(req, res, next) {
 
 router.post('/updateProfile', mid.requiresLogin, function(req, res, next) {
 
-    var profileData = {
-        id: req.session.userId,
-        city: req.body.city,
-        website: req.body.website,
-    };
-    Profile.update({ _id: req.session.userId }, profileData, { upsert: true }, function(error, user) {
-        if (error) { console.log(error) }
-    });
-    return res.redirect('/profile');
+
+    Profile.find({ 'id': req.session.userId })
+        .exec(function(error, Oldprofile) {
+            if (error) {
+                console.log(error)
+                return next(error);
+            } else {
+                Oldprofile = Oldprofile[0];
+                var city = req.body.city;
+                if (!city) {
+                    try { city = Oldprofile.city; } catch (err) { city = ' '; }
+                }
+                var website = req.body.website;
+                if (!website) {
+                    try { website = Oldprofile.website; } catch (err) { website = ' '; }
+                }
+                var profileData = {
+                    id: req.session.userId,
+                    city: city,
+                    website: website,
+                };
+                Profile.update({ _id: req.session.userId }, profileData, { upsert: true }, function(error, user) {
+                    if (error) { console.log(error) }
+                });
+                return res.redirect('/profile');
+
+
+
+            }
+
+
+        })
+
+
+
+
 
 });
 
