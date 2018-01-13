@@ -49,35 +49,24 @@ function get_prices() {
     get_ticker_price_and_change_color('https://api.cryptonator.com/api/ticker/doge-usd', 'dogecoin');
 }
 
+
+
+
+
 get_prices();
 setInterval(get_prices, 10000);
 
-
-function shuffle(array) {
-    var currentIndex = array.length,
-        temporaryValue, randomIndex;
-
-    while (0 !== currentIndex) {
-
-
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
+function getArticles() {
+    var articles;
+    var art_url = 'https://crypto-articles.herokuapp.com/articles_6';
+    $.get(art_url, function(data) {
+        var articles = data.result;
+        for (var i = 1; i < 7; i++) {
+            $('#article' + i).text(articles[i - 1][1]);
+            $('#article' + i + 'link').attr('href', articles[i - 1][0]);
+            $('#article' + i + 'link').attr('target', "_blank");
+        }
+    });
 }
-
-var articles;
-var art_url = 'https://crypto-articles.herokuapp.com/articles';
-$.get(art_url, function(data) {
-    var articles = shuffle(data.result);
-    for (var i = 1; i < 7; i++) {
-        $('#article' + i).text(articles[i][1]);
-        $('#article' + i + 'link').attr('href', articles[i][0]);
-        $('#article' + i + 'link').attr('target', "_blank");
-    }
-});
+getArticles();
+setInterval(getArticles, 10000);
