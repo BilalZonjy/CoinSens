@@ -487,42 +487,34 @@ block content
 
                                   
                                 
-            //- .col-lg-12.col-md-6
-            //-   .col-lg-6
-            //-     .panel.twitter-box
-            //-       .panel-body#twitterbox
-            //-         .live-tile(data-mode='flip', data-speed='750', data-delay='3000')
-            //-           span.tile-title.pull-right News
-            //-           |                                         
-            //-           //- i.fa.fa-twitter
-            //-           |                                         
-            //-           div#article1
-            //-             a(href="")
-            //-               h2.no-m *All* crypto communities, ethereum included, should heed these words of warning...
-            //-               span.tile-date 13 January, 2018
-            //-           |                                         
-            //-           div#article2
-            //-             a(href="")
-            //-               h2.no-m Those who didn’t buy $XRP on the dip will regret this when Japan wakes up! 
-            //-               span.tile-date 13 January, 2018
-            //-     |
-            //-   .col-lg-6                            
-            //-     .panel.facebook-box
-            //-       .panel-body#facebookbox
-            //-         .live-tile(data-mode='carousel', data-direction='horizontal', data-speed='750', data-delay='4500')
-            //-           span.tile-title.pull-right Community Pages
-            //-           |                                         
-            //-           //- i.fa.fa-facebook
-            //-           |                                         
-            //-           div#facebox1
-            //-             a(href="https://www.facebook.com/cryptocurrency/")
-            //-               h2.no-m Check out our actual TOP10 CryptoCurrency price index! ...
-            //-               span.tile-date @cryptocurrency
-            //-           |                                         
-            //-           div#facebox2
-            //-             a(href="https://www.facebook.com/cryptocurrencyupdates/")
-            //-               h2.no-m There are a lot of scams out there. Do your ICO research!...
-            //-               span.tile-date @cryptocurrencyupdates
+            .col-lg-12.col-md-6
+              .col-lg-6
+                .panel.twitter-box
+                  .panel-body#twitterbox
+                    .live-tile
+                      span.tile-title.pull-right Read More...
+                      |                                         
+                      //- i.fa.fa-twitter
+                      |                                         
+                      div
+                        a#article1link(href="")
+                          h2#article1.no-m *All* crypto communities, ethereum included, should heed these words of warning...
+                          span#article1date.tile-date 
+                      |
+                |
+              .col-lg-6                            
+                .panel.facebook-box
+                  .panel-body
+                    .live-tile
+                      span.tile-title.pull-right Read More...
+                      |                                         
+                      //- i.fa.fa-facebook
+                      |                                         
+                      div
+                        a#article2link(href="")
+                          h2#article2.no-m Check out our actual TOP10 CryptoCurrency price index! ...
+                          span#article2date.tile-date
+                      |
               |                         
         // Main Wrapper
         .page-footer
