@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
 // mongoose.connect("mongodb://localhost:27017/coinSense", { useMongoClient: true });
 
 // // deployment db
-mongoose.connect("mongodb://heroku_q941fpr3:o956fhe81vo4v82dpfupnc92js@ds251277.mlab.com:51277/heroku_q941fpr3");
+mongoose.connect("mongodb://heroku_skn5zmbj:e9PoDTXwzlJoulQZXn2Rx-fSCTRp5mkJ@ds251277.mlab.com:51277/heroku_q941fpr3");
 
 var db = mongoose.connection;
 // mongo error
